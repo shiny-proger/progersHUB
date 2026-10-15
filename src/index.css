@@ -5,7 +5,8 @@
   --text-h: #004455;
   --bg: #E4F4F8;
   --grad: linear-gradient(116deg, #1f748f 30%, #004758 100%);
-
+  --right: #00af17;
+  --error: #b80000;
   --sans: Poppins, system-ui, sans-serif;
 
   font: 18px/145% ;
@@ -27,9 +28,10 @@
   :root {
     --text: #baf1ff;
     --text-h: #b0edfc;
-    --bg: rgba(0, 0, 0, 1);
+    --bg: rgb(23, 23, 24);
     --grad: linear-gradient(319deg, #1f748f 0%, #80e4fd 100%);
-
+    --right: #46ff5f;
+    --error: #ff4747;
 
   }
 }
@@ -79,7 +81,12 @@
   }
   .iconMenu {
     @apply z-10 inline-block lg:!hidden
-
+  }
+  .numBig{
+    @apply text-9xl font-bold
+  }
+  .textStat{
+    @apply text-2xl
   }
   .textMenu{
     @apply lg:hidden 

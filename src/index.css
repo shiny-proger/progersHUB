@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --text: #004455;
+  --text-h: #004455;
+  --bg: #E4F4F8;
+  --grad: linear-gradient(116deg, #1f748f 30%, #004758 100%);
+
+  --sans: Poppins, system-ui, sans-serif;
+
+  font: 18px/145% ;
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #baf1ff;
+    --text-h: #b0edfc;
+    --bg: rgba(0, 0, 0, 1);
+    --grad: linear-gradient(319deg, #1f748f 0%, #80e4fd 100%);
+
+
+  }
+}
+
+@utility text-grad {
+  background-image: var(--grad);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+@layer base{
+  body {
+    @apply  lg:px-50 px-15
+  }
+}
+
+@theme{
+  --font-sans: Poppins, system-ui, sans-serif;
+  
+}
+
+@layer components {
+  h1 {
+    @apply font-bold  pt-5 text-[clamp(18px,5vw,70px)]
+  }
+  h2 {
+    @apply font-bold  text-[clamp(20px,5vw,70px)]
+  }
+  h3 {
+    @apply font-bold hover:cursor-pointer text-[clamp(10px,3vw,18px)] text-nowrap
+  }
+  P {
+    @apply text-[clamp(5px,2.7vw,20px)] text-(--text)/80
+  }
+  button {
+    @apply text-[clamp(5px,3vw,18px)] text-nowrap
+  }
+  input{
+    @apply text-start border-b-2 focus:outline-none mb-10 md:mx-10 2xl:w-100 xl:w-70
+  }
+  .pageMenu {
+    @apply mx-1 xl:mx-5
+  }
+  .iconMenu {
+    @apply z-10 inline-block lg:!hidden
+
+  }
+  .textMenu{
+    @apply lg:hidden 
+  }
+  .login {
+    @apply mr-10 px-5 py-2 bg-(--bg) text-(--text) border-(--text) hover:cursor-pointer border-1 rounded-md font-bold hover:bg-(--text) hover:text-(--bg) hover:border-(--bg) transition-colors duration-200
+  }
+  .signUp{
+    @apply md:px-5 px-3 py-2 bg-(--text) text-(--bg) rounded-md font-bold hover:cursor-pointer hover:bg-(--bg) hover:text-(--text) hover:border-(--text) transition-colors duration-200 border-1 
+  }
+  .BlockPL{
+    @apply sm:max-w-100 max-w-60 border-1 border-(--text)/50 p-3 rounded-md 
+  }
+  .BlockPL img {
+    @apply size-10
+  }
+}

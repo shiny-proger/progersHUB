@@ -67,6 +67,9 @@
   h3 {
     @apply font-bold hover:cursor-pointer text-[clamp(10px,3vw,18px)] text-nowrap
   }
+  h5 {
+    @apply font-bold text-[clamp(10px,2vw,18px)] text-nowrap
+  }
   P {
     @apply text-[clamp(5px,2.7vw,20px)] text-(--text)/80
   }

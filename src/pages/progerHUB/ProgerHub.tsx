@@ -1,6 +1,18 @@
 import { Link } from 'react-router-dom'
 import { motion } from "motion/react"
 import CardProb from "../../components/cardProb/CardProb"
+import StepByStep from '../../components/stepbystep/StepByStep'
+
+const stepByStep = [
+     { num: 1, head: "Выбираешь репо", parag: "Из каталога, с бейджами свежести, или проверяешь выбранный самостоятельно" },
+     { num: 2, head: "Изучаешь основы ЯП по репо", parag: "В каталоге собраны репозитории для изучения основ любых языков программирования" },
+     { num: 3, head: "Решаешь задания", parag: "Автопроверка через GitHub Actions: без ментора, без долгого ожидания" },
+     { num: 4, head: "Изучаешь работу с pull request", parag: "Что такое пулл реквесты, для чего они нужны, как они помогают в обучении и на собесах" },
+     { num: 5, head: "Выбираешь репо-проект", parag: "Из подборки проектов для практики пулл реквестов, любой интересный проект на выбор" },
+     { num: 6, head: "Запускаешь в браузере", parag: "Codespaces или StackBlitz, без сложной установки десятков библиотек" },
+     { num: 7, head: "Пишешь новые фичи в проект", parag: "Это буквально практика на реальных интересных проектах + хорошее дополнение к вашему резюме" },
+     { num: 8, head: "Копишь принятые PR", parag: "Вклады видны в твоём профиле, лучшие можно удобно перенести в резюме" },
+]
 
 function ProgerHub(){
      return (
@@ -67,8 +79,8 @@ function ProgerHub(){
                >
                <hr className='md:mb-50 mb-20 text-(--text)' />
                </motion.div>
-               <h1>Знакоме проблемы. Понятные решения&gt;</h1>
-               <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 mb-20 md:mb-50'>
+               <h1 className='mb-5 md:mb-10'>Знакоме проблемы. Понятные решения&gt;</h1>
+               <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 mb-20 md:mb-50'>
                     <CardProb 
                          prob="Репо устарели" 
                          resh="Проверка актуальности" 
@@ -77,7 +89,7 @@ function ProgerHub(){
                          linkText='Смотреть каталог →' 
                     />
                     <CardProb 
-                         prob="Не запускается" 
+                         prob="Не запускается проект" 
                          resh="Запуск в один клик" 
                          parag="Codespaces или StackBlitz открывают репо прямо в браузере." 
                          link="/" 
@@ -90,6 +102,24 @@ function ProgerHub(){
                          link="/" 
                          linkText='Читать гид →' 
                     />
+               </div>
+               <h1 className='mb-5 md:mb-10'>Как это работает?...</h1>
+               <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-5 sm:flex-row sm:justify-around flex-col  sm:mb-50 mb-20'>
+                    {stepByStep.map((elem, index)=>(
+                         <motion.div
+                              key={elem.head}
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{
+                                   opacity: 1,
+                                   y: 0,
+                                   transition: { duration: 0.5, delay: index * 0.15 },
+                              }}
+                              viewport={{ once: true }}
+                              whileHover={{ scale: 1.05 }}
+                              >
+                              <StepByStep num={elem.num} head={elem.head} parag={elem.parag} />
+                              </motion.div>
+                    ))}
                </div>
                
           </>

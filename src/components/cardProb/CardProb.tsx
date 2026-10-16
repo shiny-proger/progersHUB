@@ -11,15 +11,15 @@ type BlockPLprop = {
 function CardProb({prob, resh, parag, linkText, link}: BlockPLprop){
      return (
           <>
-               <div className="border-2 border-(--text)/50 rounded-md  p-10">
+               <div className="border-2 border-(--text)/50 rounded-md max-w-full p-10">
                     <div>
-                        <p className="text-(--error) py-1 font-bold">Проблема</p>
-                        <h3 className=' text-[clamp(10px,4vw,36px)]'>{prob}</h3>
+                        <p className="text-(--error) font-bold">Проблема</p>
+                        <h3 className='text-wrap text-[clamp(2px,2vw,36px)]'>{prob}</h3>
                     </div>
-                    <hr className="text-(--text) py-3"/>   
+                    <hr className="text-(--text) md:my-5 sm:my-3 my-2"/>   
                     <div>
-                        <p className="py-1 text-(--right) font-bold">Решение</p>
-                        <h3 className=' text-[clamp(10px,4vw,36px)]'>{resh}</h3>
+                        <p className="text-(--right) font-bold">Решение</p>
+                        <h3 className='text-wrap text-[clamp(2px,2vw,36px)]'>{resh}</h3>
                         <p>{parag}</p>
                         <Link to={link}>
                             <p className='text-(--text) font-bold'>{linkText}</p>

@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import { motion } from "motion/react"
 import CardProb from "../../components/cardProb/CardProb"
 import StepByStep from '../../components/stepbystep/StepByStep'
+import { useState } from 'react'
+import Dropdown from '../../components/dropDown/DropDown'
+import Footer from '../../components/footer/Footer'
 
 const stepByStep = [
      { num: 1, head: "Выбираешь репо", parag: "Из каталога, с бейджами свежести, или проверяешь выбранный самостоятельно" },
@@ -14,7 +17,19 @@ const stepByStep = [
      { num: 8, head: "Копишь принятые PR", parag: "Вклады видны в твоём профиле, лучшие можно удобно перенести в резюме" },
 ]
 
+const problems = [
+     {prob: "Репо устарели", resh: "Проверка актуальности", parag: "Бейдж живое или устарело по дате коммитов и версиям стека.", link: "/", linkText: "Смотреть каталог →",},
+     {prob: "Не запускается проект", resh: "Запуск в один клик", parag: "Codespaces или StackBlitz открывают репо прямо в браузере.", link: "/", linkText: "Попробовать запуск →",},
+     {prob: "Страшно делать PR", resh: "Гид и Мои вклады", parag: "Пошаговый гид и страница, где видны все твои pull request.", link: "/", linkText: "Читать гид →", },
+]
+
+
+
 function ProgerHub(){
+     const [isOpen1, setIsOpen1] = useState<boolean>(false);
+     const closeQ1 = (): void=>{
+          setIsOpen1(isOpen1 => !isOpen1);
+     }
      return (
           <>   
                <div className='max-h-full'>
@@ -115,13 +130,19 @@ function ProgerHub(){
                                    transition: { duration: 0.5, delay: index * 0.15 },
                               }}
                               viewport={{ once: true }}
-                              whileHover={{ scale: 1.05 }}
                               >
                               <StepByStep num={elem.num} head={elem.head} parag={elem.parag} />
                               </motion.div>
                     ))}
                </div>
-               
+               <div className='mb-50'>
+                    <h1>Частые вопросы</h1>
+                    <Dropdown title='Это бесплатно?' children='Выбираешь репозиторий из каталога и начинаешь изучать.' />
+                    <Dropdown title='Нужен ли GitHub-аккаунт?' children='Выбираешь репозиторий из каталога и начинаешь изучать.' />
+                    <Dropdown title='Что если я совсем новичок?' children='Выбираешь репозиторий из каталога и начинаешь изучать.' />
+                    <Dropdown title='Как считаются PR в рейтинге?' children='Выбираешь репозиторий из каталога и начинаешь изучать.' />
+               </div>
+               <Footer />
           </>
      )
 }

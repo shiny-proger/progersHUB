@@ -2,9 +2,8 @@ import { Link } from 'react-router-dom'
 import { motion } from "motion/react"
 import CardProb from "../../components/cardProb/CardProb"
 import StepByStep from '../../components/stepbystep/StepByStep'
-import { useState } from 'react'
 import Dropdown from '../../components/dropDown/DropDown'
-import Footer from '../../components/footer/Footer'
+import Button from '../../components/button/Button'
 
 const stepByStep = [
      { num: 1, head: "Выбираешь репо", parag: "Из каталога, с бейджами свежести, или проверяешь выбранный самостоятельно" },
@@ -26,10 +25,6 @@ const problems = [
 
 
 function ProgerHub(){
-     const [isOpen1, setIsOpen1] = useState<boolean>(false);
-     const closeQ1 = (): void=>{
-          setIsOpen1(isOpen1 => !isOpen1);
-     }
      return (
           <>   
                <div className='max-h-full'>
@@ -37,8 +32,11 @@ function ProgerHub(){
                          <h1 >Каждый шаг обучения подтверждён кодом <span className="text-grad text-nowrap">PROGERS HUB</span></h1>
                     </div>
                     <div className="flex justify-center mt-20 ">
-                         <Link to="/catalog"><button className="signUp md:mx-20 mx-3">Открыть каталог</button></Link>
-                         <button className="login md:mx-20 mx-3">Как сделать первый PR</button>
+                         <Link to="/catalog">
+                              <Button text='Открыть каталог' numCSS={true} margin='md:mx-20 mx-3'/>
+                         </Link>
+                         
+                         <Button text='Твой первый PR' numCSS={false} margin='md:mx-20 mx-3'/>
                     </div>
                </div>
                <motion.div
@@ -96,27 +94,15 @@ function ProgerHub(){
                </motion.div>
                <h1 className='mb-5 md:mb-10'>Знакоме проблемы. Понятные решения&gt;</h1>
                <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 mb-20 md:mb-50'>
-                    <CardProb 
-                         prob="Репо устарели" 
-                         resh="Проверка актуальности" 
-                         parag="Бейдж живое или устарело по дате коммитов и версиям стека." 
-                         link="/" 
-                         linkText='Смотреть каталог →' 
+                    {problems.map((elem)=>(
+                         <CardProb 
+                         prob={elem.prob}
+                         resh={elem.resh} 
+                         parag={elem.parag}
+                         link={elem.link}
+                         linkText={elem.linkText} 
                     />
-                    <CardProb 
-                         prob="Не запускается проект" 
-                         resh="Запуск в один клик" 
-                         parag="Codespaces или StackBlitz открывают репо прямо в браузере." 
-                         link="/" 
-                         linkText='Попробовать запуск →' 
-                    />
-                    <CardProb 
-                         prob="Страшно делать PR" 
-                         resh="Гид и Мои вклады" 
-                         parag="Пошаговый гид и страница, где видны все твои pull request." 
-                         link="/" 
-                         linkText='Читать гид →' 
-                    />
+                    ))}
                </div>
                <h1 className='mb-5 md:mb-10'>Как это работает?...</h1>
                <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-5 sm:flex-row sm:justify-around flex-col  sm:mb-50 mb-20'>
@@ -142,7 +128,7 @@ function ProgerHub(){
                     <Dropdown title='Что если я совсем новичок?' children='Выбираешь репозиторий из каталога и начинаешь изучать.' />
                     <Dropdown title='Как считаются PR в рейтинге?' children='Выбираешь репозиторий из каталога и начинаешь изучать.' />
                </div>
-               <Footer />
+               
           </>
      )
 }

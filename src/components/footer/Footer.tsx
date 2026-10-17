@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 
 export default function Footer(){
@@ -26,8 +26,13 @@ export default function Footer(){
                 </div>
                 <div className="my-3">
                     <h3 className="text-xl text-nowrap">Связь</h3>
-                    <p>Telegram</p>
-                    <p>GitHub</p>
+                    <Link to="https://t.me/proger_road">
+                        <p>Telegram</p>
+                    </Link>
+                    <Link to="https://github.com/shiny-proger">
+                        <p>GitHub</p>
+                    </Link>
+                    
                 </div>
                 
             </div>

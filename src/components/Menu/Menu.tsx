@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCaretDown, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../button/Button';
 
 function Menu(){
     const [isOpen, setIsOpen] = useState(false);
@@ -25,10 +26,10 @@ function Menu(){
 
                     <div className="hidden lg:flex lg:gap-3 ">
                         <Link to="/login">
-                            <button className="login">Войти</button>
+                            <Button text='Войти' numCSS={false} margin=''/>
                         </Link>
                         <Link to="/signin">
-                            <button className="signUp">Регистрация</button>
+                            <Button text='Регистрация' numCSS={true} margin=''/>
                         </Link>
                     </div>
 
@@ -65,10 +66,10 @@ function Menu(){
                         </Link>
                         <div className='flex justify-between'>
                             <Link to="/login" onClick={closeMenu}>
-                                <button className="login">Войти</button>
+                                <Button text='Войти' numCSS={false} margin=''/>
                             </Link>
                             <Link to="/signin" onClick={closeMenu}>
-                                <button className="signUp">Регистрация</button>
+                                <Button text='Регистрация' numCSS={true} margin=''/>
                             </Link>
                         </div>
                     </div>

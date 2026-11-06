@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCaretDown, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Button from '../button/Button';
+import Button from '../../ui/button/Button';
 
 function Menu(){
     const [isOpen, setIsOpen] = useState(false);
@@ -25,14 +25,14 @@ function Menu(){
                     </div>
 
                     <div className="hidden lg:flex lg:gap-3 ">
-                        <Link to="/login">
+                        {/* <Link to="/login">
                             <Button text='Войти' numCSS={false} margin=''/>
                         </Link>
                         <Link to="/signin">
                             <Button text='Регистрация' numCSS={true} margin=''/>
-                        </Link>
+                        </Link> */}
+                        <Button text='Profile' numCSS={true} margin=''/>
                     </div>
-
                     <div className="lg:hidden">
                         <FontAwesomeIcon
                             onClick={() => setIsOpen(open => !open)}

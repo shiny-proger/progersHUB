@@ -11,7 +11,7 @@ type BlockPLprop = {
 function CardProb({prob, resh, parag, linkText, link}: BlockPLprop){
      return (
           <>
-               <div className="border-2 border-(--text)/50 rounded-md max-w-full p-10">
+               <div className="border-2 border-(--text)/50 rounded-md max-w-full md:p-10 p-5">
                     <div>
                         <p className="text-(--error) font-bold">Проблема</p>
                         <h3 className='text-wrap text-[clamp(2px,2vw,36px)]'>{prob}</h3>

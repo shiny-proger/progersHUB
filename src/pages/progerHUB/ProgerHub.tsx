@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import { motion } from "motion/react"
-import CardProb from "../../components/cardProb/CardProb"
-import StepByStep from '../../components/stepbystep/StepByStep'
-import Dropdown from '../../components/dropDown/DropDown'
-import Button from '../../components/button/Button'
+import CardProb from "../../components/home/cardProb/CardProb"
+import StepByStep from '../../components/home/stepbystep/StepByStep'
+import Dropdown from '../../components/home/dropDown/DropDown'
+import Button from '../../components/ui/button/Button'
 
 const stepByStep = [
      { num: 1, head: "Выбираешь репо", parag: "Из каталога, с бейджами свежести, или проверяешь выбранный самостоятельно" },
@@ -29,7 +29,7 @@ function ProgerHub(){
           <>   
                <div className='max-h-full'>
                     <div className="text-center lg:mt-80 mt-40">
-                         <h1 >Каждый шаг обучения подтверждён кодом <span className="text-grad text-nowrap">PROGERS HUB</span></h1>
+                         <h1 >Каждый шаг обучения подтверждён <span className="grad-or">кодом</span> <span className="text-grad text-nowrap">PROGERS HUB</span></h1>
                     </div>
                     <div className="flex justify-center mt-20 ">
                          <Link to="/catalog">
@@ -80,7 +80,7 @@ function ProgerHub(){
                          whileHover={{ scale: 1.05 }}
                          transition={{ duration: 0.5 }}
                          >
-                         <div className='numBig'>34</div>
+                         <div className='numBig'>182</div>
                          <div className='textStat'>Участников</div>
                          </motion.div>
                     </div>    
@@ -92,7 +92,7 @@ function ProgerHub(){
                >
                <hr className='md:mb-50 mb-20 text-(--text)' />
                </motion.div>
-               <h1 className='mb-5 md:mb-10'>Знакоме проблемы. Понятные решения&gt;</h1>
+               <h1 className='mb-5 md:mb-10'>Знакомые проблемы. Понятные решения&gt;</h1>
                <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 mb-20 md:mb-50'>
                     {problems.map((elem)=>(
                          <CardProb 
@@ -106,7 +106,13 @@ function ProgerHub(){
                </div>
                <h1 className='mb-5 md:mb-10'>Как это работает?...</h1>
                <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-5 sm:flex-row sm:justify-around flex-col  sm:mb-50 mb-20'>
-                    {stepByStep.map((elem, index)=>(
+                    {stepByStep.map((elem, index)=>
+                    {
+                    let col=true;
+                    if(index>3){
+                         col=!col;
+                    }
+                    return (
                          <motion.div
                               key={elem.head}
                               initial={{ opacity: 0, y: 20 }}
@@ -117,9 +123,9 @@ function ProgerHub(){
                               }}
                               viewport={{ once: true }}
                               >
-                              <StepByStep num={elem.num} head={elem.head} parag={elem.parag} />
+                              <StepByStep num={elem.num} head={elem.head} parag={elem.parag} col={col} />
                               </motion.div>
-                    ))}
+                    )})}
                </div>
                <div className='mb-50'>
                     <h1>Частые вопросы</h1>

@@ -1,4 +1,4 @@
-import BlockPL from "../../components/blockPL/BlockPL"
+import BlockPL from "../../components/language/blockPL/BlockPL"
 import js from "../../assets/langs/js.png"
 import ts from "../../assets/langs/ts.png"
 import python from "../../assets/langs/python.png"
@@ -16,7 +16,6 @@ import swift from "../../assets/langs/swift.png"
 import kotlin from "../../assets/langs/kotlin.png"
 
 import { motion } from "motion/react"
-
 const cards = [
      { src: js, head: "JavaScript", parag: "Изучаем JavaScript по GitHub-репозиториям!" },
      { src: ts, head: "TypeScript", parag: "Грокаем TypeScript по GitHub-репозиториям!" },

@@ -8,6 +8,15 @@
   --right: #00af17;
   --error: #b80000;
   --sans: Poppins, system-ui, sans-serif;
+  --osn-or: #ff8a3d;
+  --lig-or: #ffb070;
+  --bl-or: #e8701a;
+  --bg-or: #2e1d10;
+  --text-or: #1a0e04;
+  --border-or: rgba(255, 138, 61, 0.45);
+  --svet-or: rgba(255, 138, 61, 0.2);
+  --grad-or: linear-gradient(90deg, #ffb070, #e8701a)
+
 
   font: 18px/145% ;
   letter-spacing: 0.18px;
@@ -32,12 +41,28 @@
     --grad: linear-gradient(319deg, #1f748f 0%, #80e4fd 100%);
     --right: #46ff5f;
     --error: #ff4747;
-
+    --osn-or: #ff8a3d;
+    --lig-or: #ffb070;
+    --bl-or: #e8701a;
+    --bg-or: #2e1d10;
+    --text-or: #1a0e04;
+    --border-or: rgba(255, 138, 61, 0.45);
+    --svet-or: rgba(255, 138, 61, 0.2);
+    --grad-or: linear-gradient(90deg, #ffb070, #e8701a)
   }
 }
 
 @utility text-grad {
   background-image: var(--grad);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  width: 100%;
+  margin-inline: auto;
+}
+
+@utility grad-or {
+  background-image: var(--grad-or);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -79,7 +104,7 @@
     @apply text-start border-b-2 focus:outline-none mb-10 md:mx-10 2xl:w-100 xl:w-70
   }
   .pageMenu {
-    @apply mx-1 xl:mx-5
+    @apply mx-1 xl:mx-5 transition-transform duration-300 ease-in-out hover:-translate-y-2  p-6 rounded-lg shadow-lg inline-block cursor-pointer hover:underline hover:decoration-(--lig-or) decoration-2 
   }
   .iconMenu {
     @apply z-10 inline-block lg:!hidden

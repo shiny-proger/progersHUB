@@ -4,7 +4,7 @@ type chipType={
 }
 
 export default function Chip({text, col}: chipType){
-    let style="  inline-block whitespace-nowrap px-2 py-1 rounded-full "
+    let style=" inline-block whitespace-nowrap px-2 py-1 rounded-full text-[clamp(3px,1vw,15px)] hover:cursor-pointer "
     switch(col){
         case 1:
             style+=" bg-(--text)/10 border-1"

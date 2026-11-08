@@ -17,7 +17,7 @@ function Menu(){
 
                     <div className="hidden lg:flex lg:gap-6">
                         
-                        <Link to="/lenguages">
+                        <Link to="/languages">
                             <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
                                 <h3 className="pageMenu">Каталог</h3>
                             </div>
@@ -68,7 +68,7 @@ function Menu(){
                                 ? "translate-x-0" : "-translate-x-full"}
                         `}
                     >
-                        <Link to="/lenguages" onClick={closeMenu}>
+                        <Link to="/languages" onClick={closeMenu}>
                             <button className="">Каталог</button>
                         </Link>
                         <Link to="/" onClick={closeMenu}>

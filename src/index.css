@@ -15,7 +15,7 @@
   --text-or: #1a0e04;
   --border-or: rgba(255, 138, 61, 0.45);
   --svet-or: rgba(255, 138, 61, 0.2);
-  --grad-or: linear-gradient(90deg, #ffb070, #e8701a)
+  --grad-or: linear-gradient(90deg, #c45800, #ff9143);
 
 
   font: 18px/145% ;
@@ -48,7 +48,7 @@
     --text-or: #1a0e04;
     --border-or: rgba(255, 138, 61, 0.45);
     --svet-or: rgba(255, 138, 61, 0.2);
-    --grad-or: linear-gradient(90deg, #ffb070, #e8701a)
+    --grad-or: linear-gradient(90deg, #ffb070, #e8701a);
   }
 }
 
@@ -68,6 +68,24 @@
   color: transparent;
   width: 100%;
   margin-inline: auto;
+
+}
+
+@utility text-grad-hover {
+  background-image: var(--grad-or), var(--grad);
+  background-repeat: no-repeat;
+  background-size: 0% 100%, 100% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  width: 100%;
+  margin-inline: auto;
+  transition: background-size 0.4s ease;
+
+  &:hover {
+    background-size: 100% 100%, 100% 100%;
+    
+  }
 }
 
 @layer base{
@@ -104,7 +122,7 @@
     @apply text-start border-b-2 focus:outline-none mb-10 md:mx-10 2xl:w-100 xl:w-70
   }
   .pageMenu {
-    @apply mx-1 xl:mx-5 transition-transform duration-300 ease-in-out hover:-translate-y-2  p-6 rounded-lg shadow-lg inline-block cursor-pointer hover:underline hover:decoration-(--lig-or) decoration-2 
+    @apply mx-1 xl:mx-5 transition-transform duration-300 ease-in-out hover:-translate-y-1  
   }
   .iconMenu {
     @apply z-10 inline-block lg:!hidden

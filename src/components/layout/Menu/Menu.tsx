@@ -12,16 +12,32 @@ function Menu(){
           <>     
                 <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-(--bg)/80 2xl:px-50 xl:px-30 px-15 py-7">
                     <Link to="/" onClick={closeMenu}>
-                        <h3 className="text-grad text-xl text-nowrap">Progers HUB</h3>
+                        <h3 className="text-grad-hover text-xl text-nowrap">Progers HUB</h3>
                     </Link>
 
                     <div className="hidden lg:flex lg:gap-6">
-                        <Link to="/catalog">
-                            <h3 className="pageMenu">Каталог</h3>
+                        
+                        <Link to="/lenguages">
+                            <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
+                                <h3 className="pageMenu">Каталог</h3>
+                            </div>
                         </Link>
-                        <h3 className="pageMenu">Roadmap</h3>
-                        <h3 className="pageMenu">Гид по PR</h3>
-                        <h3 className="pageMenu">Тарифы</h3>
+                        <Link to="/catalog">
+                            <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
+                                <h3 className="pageMenu">Roadmap</h3>
+                            </div>
+                        </Link>
+                        <Link to="/catalog">
+                            <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
+                                <h3 className="pageMenu">Гид по PR</h3>
+                            </div>
+                        </Link>
+                        <Link to="/catalog">
+                            <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
+                                <h3 className="pageMenu">Тарифы</h3>
+                            </div>
+                        </Link>
+                        
                     </div>
 
                     <div className="hidden lg:flex lg:gap-3 ">
@@ -31,7 +47,7 @@ function Menu(){
                         <Link to="/signin">
                             <Button text='Регистрация' numCSS={true} margin=''/>
                         </Link> */}
-                        <Button text='Profile' numCSS={true} margin=''/>
+                        <Button text='Profile' numCSS={true} margin='' col={1}/>
                     </div>
                     <div className="lg:hidden">
                         <FontAwesomeIcon
@@ -52,7 +68,7 @@ function Menu(){
                                 ? "translate-x-0" : "-translate-x-full"}
                         `}
                     >
-                        <Link to="/catalog" onClick={closeMenu}>
+                        <Link to="/lenguages" onClick={closeMenu}>
                             <button className="">Каталог</button>
                         </Link>
                         <Link to="/" onClick={closeMenu}>
@@ -66,10 +82,10 @@ function Menu(){
                         </Link>
                         <div className='flex justify-between'>
                             <Link to="/login" onClick={closeMenu}>
-                                <Button text='Войти' numCSS={false} margin=''/>
+                                <Button text='Войти' numCSS={false} margin='' col={1}/>
                             </Link>
                             <Link to="/signin" onClick={closeMenu}>
-                                <Button text='Регистрация' numCSS={true} margin=''/>
+                                <Button text='Регистрация' numCSS={true} margin='' col={2}/>
                             </Link>
                         </div>
                     </div>

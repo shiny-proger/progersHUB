@@ -4,6 +4,7 @@ import CardProb from "../../components/home/cardProb/CardProb"
 import StepByStep from '../../components/home/stepbystep/StepByStep'
 import Dropdown from '../../components/home/dropDown/DropDown'
 import Button from '../../components/ui/button/Button'
+import Chip from '../../components/ui/chip/Chip'
 
 const stepByStep = [
      { num: 1, head: "Выбираешь репо", parag: "Из каталога, с бейджами свежести, или проверяешь выбранный самостоятельно" },
@@ -17,9 +18,9 @@ const stepByStep = [
 ]
 
 const problems = [
-     {prob: "Репо устарели", resh: "Проверка актуальности", parag: "Бейдж живое или устарело по дате коммитов и версиям стека.", link: "/", linkText: "Смотреть каталог →",},
-     {prob: "Не запускается проект", resh: "Запуск в один клик", parag: "Codespaces или StackBlitz открывают репо прямо в браузере.", link: "/", linkText: "Попробовать запуск →",},
-     {prob: "Страшно делать PR", resh: "Гид и Мои вклады", parag: "Пошаговый гид и страница, где видны все твои pull request.", link: "/", linkText: "Читать гид →", },
+     {prob: "Репо устарели", resh: "Проверка актуальности", parag: "Бейдж живое или устарело по дате коммитов и версиям стека.", link: "/", linkText: "Смотреть каталог ",},
+     {prob: "Не запускается проект", resh: "Запуск в один клик", parag: "Codespaces или StackBlitz открывают репо прямо в браузере.", link: "/", linkText: "Попробовать запуск ",},
+     {prob: "Страшно делать PR", resh: "Гид и Мои вклады", parag: "Пошаговый гид и страница, где видны все твои pull request.", link: "/", linkText: "Читать гид ", },
 ]
 
 
@@ -32,11 +33,11 @@ function ProgerHub(){
                          <h1 >Каждый шаг обучения подтверждён <span className="grad-or">кодом</span> <span className="text-grad text-nowrap">PROGERS HUB</span></h1>
                     </div>
                     <div className="flex justify-center mt-20 ">
-                         <Link to="/catalog">
-                              <Button text='Открыть каталог' numCSS={true} margin='md:mx-20 mx-3'/>
+                         <Link to="/lenguages">
+                              <Button text='Открыть каталог' numCSS={true} margin='md:mx-20 mx-3' col={1}/>
                          </Link>
                          
-                         <Button text='Твой первый PR' numCSS={false} margin='md:mx-20 mx-3'/>
+                         <Button text='Твой первый PR' numCSS={false} margin='md:mx-20 mx-3' col={3}/>
                     </div>
                </div>
                <motion.div
@@ -48,7 +49,7 @@ function ProgerHub(){
                </motion.div>
                <div className='flex justify-around text-center sm:flex-row flex-col '>
                    
-                    <div className='my-10'>
+                    <div className='my-10 flex flex-col justify-center items-center'>
                          <motion.div
                          initial={{ opacity: 0, y: 20 }}
                          whileInView={{ opacity: 1, y: 0 }}
@@ -56,8 +57,9 @@ function ProgerHub(){
                          whileHover={{ scale: 1.05 }}
                          transition={{ duration: 0.5 }}
                          >
-                              <div className='numBig'>34</div>
-                              <div className='textStat'>Репо в каталоге</div>
+                         <div className='numBig'>34</div>
+                         <hr className='w-1/4 mx-auto text-(--osn-or) border-3 rounded-sm' />
+                         <div className='textStat'>Репо в каталоге</div>
                          </motion.div>
                     </div>
                     <div className='my-10'>
@@ -69,6 +71,7 @@ function ProgerHub(){
                          transition={{ duration: 0.5 }}
                          >
                          <div className='numBig'>4</div>
+                         <hr className='w-1/4 mx-auto text-(--osn-or) border-3 rounded-sm' />
                          <div className='textStat'>Принято PR</div>
                          </motion.div>
                     </div>
@@ -81,6 +84,7 @@ function ProgerHub(){
                          transition={{ duration: 0.5 }}
                          >
                          <div className='numBig'>182</div>
+                         <hr className='w-1/4 mx-auto text-(--osn-or) border-3 rounded-sm' />
                          <div className='textStat'>Участников</div>
                          </motion.div>
                     </div>    
@@ -92,7 +96,8 @@ function ProgerHub(){
                >
                <hr className='md:mb-50 mb-20 text-(--text)' />
                </motion.div>
-               <h1 className='mb-5 md:mb-10'>Знакомые проблемы. Понятные решения&gt;</h1>
+               <h1 className='mb-5 md:mb-10'>Знакомые проблемы. <span className='grad-or'>Понятные решения&gt;</span> </h1>
+               
                <div className='grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3 mb-20 md:mb-50'>
                     {problems.map((elem)=>(
                          <CardProb 
@@ -104,7 +109,11 @@ function ProgerHub(){
                     />
                     ))}
                </div>
-               <h1 className='mb-5 md:mb-10'>Как это работает?...</h1>
+               <h1 className='mb-5'>Как это работает?...</h1>
+               <div className='mb-5 flex gap-5'>
+                    <Chip text="1-4 обучение" col={1} />
+                    <Chip text="5-8 практика" col={2} />
+               </div>
                <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4  gap-5 sm:flex-row sm:justify-around flex-col  sm:mb-50 mb-20'>
                     {stepByStep.map((elem, index)=>
                     {

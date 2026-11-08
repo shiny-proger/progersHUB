@@ -16,7 +16,7 @@ export default function Dropdown({ title, children }: DropdownProps) {
         className="text-[clamp(8px,5vw,36px)] flex w-full cursor-pointer items-center justify-between text-left font-semibold "
       >
         {title}
-        <span className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+        <span className={`transition-transform duration-300 text-(--osn-or) ${isOpen ? "rotate-180" : ""}`}>
           ▼
         </span>
       </h1>

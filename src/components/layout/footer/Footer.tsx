@@ -8,7 +8,7 @@ export default function Footer(){
             <hr className="max-w-full " />
             <div className="flex flex-col sm:flex-row  justify-between text-start items-start my-10">
                 <div className="my-3">
-                    <h3 className="text-grad text-3xl text-nowrap">Progers HUB</h3>
+                    <h3 className="text-grad-hover text-3xl text-nowrap">Progers HUB</h3>
                     <p>Учись по живым репозиториям GitHub.</p>
                 </div>
                 <div className="my-3">

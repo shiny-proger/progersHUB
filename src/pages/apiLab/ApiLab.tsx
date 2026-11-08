@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Repo } from '../../types/github'
 import Chip from "../../components/ui/chip/Chip";
 import { CheckBox } from "../../components/ui/CheckBox/CheckBox";
+import Badge from "../../components/ui/badge/Badge";
 
 const owner = "shiny-proger";
 const repo = "reactLib"
@@ -32,6 +33,8 @@ export default function ApiLab(){
                 onChange={setIsEnabled} 
                 label="Включить уведомления" 
             />
+            
+            <Badge />
             <button className="rounded-lg bg-sky-500 px-4 py-2 text-white" onClick=
             {load}>Button</button>
             <p className="mt-4">{text}</p>

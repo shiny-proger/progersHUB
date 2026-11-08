@@ -1,3 +1,4 @@
+import Chip from "../../ui/chip/Chip";
 
 type BlockPLprop = {
      src: string
@@ -9,11 +10,13 @@ function BlockPL({src, head, parag}: BlockPLprop){
      return (
           <>
                <div className="BlockPL text-grad-hover">
-                    <div className="sm:flex sm:flex-col sm:justify-start sm:items-start flex flex-row items-center justify-around">
+                    
+                    <div className="flex flex-col justify-start items-start ">
                          <img src={src} alt="" />
                          <h3>{head}</h3>                 
+                         <p>{parag}</p>   
                     </div>
-                    <p>{parag}</p>   
+                    <Chip text="5 репо" col={2} />
                </div>
           </>
      )

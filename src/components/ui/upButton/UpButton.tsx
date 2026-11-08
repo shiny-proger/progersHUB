@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { motion } from "motion/react"
+import { AnimatePresence, motion } from "motion/react"
 
 export default function UpButton(){
 
@@ -8,36 +8,36 @@ export default function UpButton(){
 
   useEffect(() => {
     const handleScroll = () => {
-      // Каждый раз при скролле проверяем текущую позицию
-      if (window.scrollY > 800) {
-        setIsScrolledPastLimit(true);
-      } else {
-        setIsScrolledPastLimit(false);
-      }
+      setIsScrolledPastLimit(window.scrollY>500);
     };
 
-        // Вешаем слушатель на окно браузера
-        window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
-        // Обязательно удаляем слушатель при размонтировании компонента, чтобы не было утечки памяти
-        return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Пример условия: кнопка появляется только если пользователь пролистал вниз
     if (!isScrolledPastLimit) return null;
 
     return (
         <>
-            <motion.div
-                initial={{ opacity: 0}}
-                whileInView={{ opacity: 1}}
-                
+          <AnimatePresence>
+            {isScrolledPastLimit && (
+              <motion.button
+                key="scroll-top"
+                type="button"
+                aria-label="Наверх"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="fixed sm:bottom-20 sm:right-20 bottom-10 right-10 w-10 h-10 font-bold bg-(--osn-or) text-(--text-or) rounded-sm"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
                 whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-                >
-                    <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="fixed sm:bottom-20 sm:right-20 bottom-10 right-10 w-10 h-10 font-bold bg-(--osn-or) text-(--text-or) rounded-sm">↑</button>
-            </motion.div>
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
+              >
+                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>↑</button>
+          </motion.button>)}
+        </AnimatePresence>
         </>    
-            
     )
 }

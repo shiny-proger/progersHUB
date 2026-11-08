@@ -4,7 +4,7 @@ type chipType={
 }
 
 export default function Chip({text, col}: chipType){
-    let style="  inline-block px-2 py-1 rounded-full "
+    let style="  inline-block whitespace-nowrap px-2 py-1 rounded-full "
     switch(col){
         case 1:
             style+=" bg-(--text)/10 border-1"
@@ -20,6 +20,7 @@ export default function Chip({text, col}: chipType){
             break;
     }
     return (
-        <h6 className={style}>{text}</h6>
+        <p className={style}>{text}</p>
     )
 }
+

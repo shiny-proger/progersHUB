@@ -14,6 +14,7 @@ import dart from "../../assets/langs/dart.png"
 import php from "../../assets/langs/php.png"
 import swift from "../../assets/langs/swift.png"
 import kotlin from "../../assets/langs/kotlin.png"
+import { Link } from "react-router-dom"
 
 import { motion } from "motion/react"
 const cards = [
@@ -47,7 +48,7 @@ function Catalog(){
                </div>
                <h2 className="lg:mt-100  mt-50 mb-10">Выбирай язык программирования</h2>
                <div className="flex justify-center ">
-                    <div className="inline-grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-10 gap-3 items-center lg:mb-100 mb-50">
+                    <div className="inline-grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-10 gap-3 items-center lg:mb-10 mb-10">
                          {cards.map((elem, index) => (
                               <motion.div
                               key={elem.head}
@@ -68,6 +69,11 @@ function Catalog(){
                               </motion.div>
                          ))}
                     </div>
+               </div>
+               <div className="text-center border-2 border-(--osn-or) border-dashed rounded-md mb-10">
+                    <Link to="/catalog">
+                         <h3 className="text-(--osn-or) sm:p-5 p-3">Не нашёл свой язык? Открыть весь каталог →</h3>
+                    </Link>
                </div>
           </>
 

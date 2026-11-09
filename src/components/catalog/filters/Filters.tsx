@@ -8,7 +8,8 @@ export default function Filters(){
     const [isEnabled, setIsEnabled] = useState<boolean>(false);
 
     return (
-        <div className="border-1 border-(--text) text-start p-5 rounded-md mb-10 grid gap-3 sm:gap-5 sm:w-1/4">
+        <div className="border-2 border-(--text) text-start p-5 rounded-md mb-10 grid gap-3 sm:gap-5 sm:w-1/4">
+            <h2>Фильтры:</h2>
             <div className="grid ">
                 <h4>Язык</h4>
                 <div className="flex gap-3 flex-wrap">

@@ -6,7 +6,7 @@ interface ToggleProps {
   label?: string;
 }
 
-export const CheckBox: React.FC<ToggleProps> = ({ checked, onChange, label }) => {
+export const CheckBox: React.FC<ToggleProps> = ({ checked, onChange }) => {
   return (
     <label className="inline-flex items-center className cursor-pointer select-none gap-3">
       {/* Скрытый дефолтный чекбокс для доступности (accessibility) */}

@@ -16,7 +16,7 @@
   --border-or: rgba(255, 138, 61, 0.45);
   --svet-or: rgba(255, 138, 61, 0.2);
   --grad-or: linear-gradient(90deg, #c45800, #ff9143);
-
+  --check: #004455;
 
   font: 18px/145% ;
   letter-spacing: 0.18px;
@@ -49,6 +49,7 @@
     --border-or: rgba(255, 138, 61, 0.45);
     --svet-or: rgba(255, 138, 61, 0.2);
     --grad-or: linear-gradient(90deg, #ffb070, #e8701a);
+    --check: #004455;
   }
 }
 
@@ -90,7 +91,7 @@
 
 @layer base{
   body {
-    @apply  lg:px-50 px-15
+    @apply  lg:px-50 px-5
   }
 }
 
@@ -101,7 +102,7 @@
 
 @layer components {
   h1 {
-    @apply font-bold  pt-5 text-[clamp(18px,5vw,70px)]
+    @apply font-bold  pt-5 text-[clamp(20px,7vw,70px)]
   }
   h2 {
     @apply font-bold  text-[clamp(20px,5vw,70px)]
@@ -113,7 +114,7 @@
     @apply font-bold text-[clamp(10px,2vw,18px)] text-nowrap
   }
   h4 {
-    @apply font-bold text-[clamp(10px,2vw,18px)] text-nowrap uppercase text-(--osn-or)
+    @apply font-bold text-[clamp(10px,5vw,18px)] text-nowrap uppercase text-(--osn-or)
   }
   P {
     @apply text-[clamp(5px,2.7vw,20px)] text-(--text)/80

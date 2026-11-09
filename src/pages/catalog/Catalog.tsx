@@ -6,8 +6,10 @@ function Catalog(){
                <div className="text-start xl:mt-40 mt-20">
                     <h1>Каталог репозиториев <span className="text-grad text-nowrap">PROGERS HUB</span></h1>
                </div>
-               
-               <Filters />
+               <div className="grid sm:flex gap-5">
+                    <Filters />
+                    <h1>fghuiiufiugfuigfugiho</h1>
+               </div>
                
           </>
 

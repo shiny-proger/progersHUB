@@ -1,8 +1,14 @@
+import { useState } from "react";
+
 import Chip from "../../ui/chip/Chip"
+import { CheckBox } from "../../ui/CheckBox/CheckBox"
+import Button from "../../ui/button/Button";
 
 export default function Filters(){
+    const [isEnabled, setIsEnabled] = useState<boolean>(false);
+
     return (
-        <div className="border-1 border-(--text) text-start p-5 rounded-md mb-10 grid gap-3 sm:gap-5">
+        <div className="border-1 border-(--text) text-start p-5 rounded-md mb-10 grid gap-3 sm:gap-5 sm:w-1/4">
             <div className="grid ">
                 <h4>Язык</h4>
                 <div className="flex gap-3 flex-wrap">
@@ -46,8 +52,14 @@ export default function Filters(){
             <div className="grid ">
                 <h4>Формат</h4>
                 <div className="flex gap-3 flex-wrap">
-                    <Chip text="python" col={2} /> 
-                    <Chip text="python" col={2} />
+                    <Chip text="Курс" col={2} /> 
+                    <Chip text="Книга" col={1} />
+                    <Chip text="Шпаргалка" col={1} /> 
+                    <Chip text="Интерактив" col={1} />
+                    <Chip text="Учебный проект" col={2} /> 
+                    <Chip text="Задачи" col={2} />
+                    <Chip text="Awesome" col={1} /> 
+                    
                 </div>
             </div>
             <div className="grid ">
@@ -58,7 +70,42 @@ export default function Filters(){
                     <Chip text="Любой" col={1} /> 
                 </div>
             </div>
-            
+            <div className="grid ">
+                <h4>Обновлялся</h4>
+                <div className="flex gap-3 flex-wrap">
+                    <Chip text="За месяц" col={1} /> 
+                    <Chip text="За 6 месяцев" col={1} /> 
+                    <Chip text="За год" col={1} /> 
+                </div>
+            </div>
+            <div className="flex justify-between items-center ">
+                <h4>Скрыть архивные →</h4>
+                <CheckBox 
+                checked={isEnabled} 
+                onChange={setIsEnabled} 
+                label="Включить уведомления" 
+            />
+            </div>
+            <div className="flex justify-between items-center ">
+                <h4>Есть good first issue →</h4>
+                <CheckBox 
+                checked={isEnabled} 
+                onChange={setIsEnabled} 
+                label="Включить уведомления" 
+            />
+            </div>
+            <div className="flex justify-between items-center ">
+                <h4>Запуск без установки →</h4>
+                <CheckBox 
+                checked={isEnabled} 
+                onChange={setIsEnabled} 
+                label="Включить уведомления" 
+            />
+            </div>
+            <div className="grid gap-3 items-center ">
+                <Button text='Применить фильтры' col={3} margin="" numCSS={true} />
+                <Button text='Сбросить фильтры' col={1} margin="" numCSS={true} />
+            </div>
         </div>
     )
 }

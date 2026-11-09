@@ -17,7 +17,8 @@ function Button({text, margin, numCSS, col}: ButProp){
           case 3:
                style+=" bg-(--osn-or)/10 text-(--bl-or) border-(--osn-or) hover:bg-(--bl-or) hover:text-(--text-or)"
                break;
-
+          case 4:
+               style+=" "
 
      }
      return (

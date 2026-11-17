@@ -1,8 +1,9 @@
 import { useState } from "react";
-
-import Button from "../../ui/button/Button";
+import Save from "../../ui/button/Save";
 import Chip from "../../ui/chip/Chip"
 import { CheckBox } from "../../ui/CheckBox/CheckBox"
+import useSave from "../../../hooks/useSave";
+
 
 type propRepo={
     name: string,
@@ -13,9 +14,20 @@ type propRepo={
     stars: number,
 }
 
+
 export default function Repo({name, par, level, lang, format, stars}: propRepo){
-    const [isEnabled, setIsEnabled] = useState<boolean>(false);
-   
+    const [isEnabled, setIsEnabled]=useState(true);
+
+    const {isSave, saveRepo, unsaveRepo}=useSave(name);
+
+    function handleSave(){
+        if (isSave){
+            unsaveRepo()
+        } else{
+            saveRepo()
+        }
+    }
+
     return (
         <div className="grid gap-2 border-2 rounded-md p-5 items-center">
             <div className="flex justify-between">
@@ -33,12 +45,11 @@ export default function Repo({name, par, level, lang, format, stars}: propRepo){
                 <div className="flex justify-baseline gap-3 items-center">
                     <CheckBox 
                         checked={isEnabled} 
-                        onChange={setIsEnabled} 
-                        label="Включить уведомления" 
+                        onChange={setIsEnabled}  
                     />
                     <p>сравнить</p>
                 </div>
-                <Button text="☆" margin="" numCSS={true} col={3} />
+                <Save clickFun={handleSave} text={isSave ? "★" : "☆"} margin="" numCSS={true} col={isSave ? 3 : 2} />
             </div>
         </div>
     )

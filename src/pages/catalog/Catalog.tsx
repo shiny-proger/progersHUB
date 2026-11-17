@@ -129,7 +129,7 @@ function Catalog(){
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                          {repos.map((elem)=>{
                          return(
-                              <Repo name={elem.name} par={elem.description} level={elem.level} lang={elem.contentLanguage} format={elem.format} stars={elem.stars} />
+                              elem.stars===322 && <Repo name={elem.name} par={elem.description} level={elem.level} lang={elem.contentLanguage} format={elem.format} stars={elem.stars} />
                               )
                          })
 

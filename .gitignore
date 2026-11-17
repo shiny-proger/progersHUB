@@ -26,4 +26,4 @@ dist-ssr
 .env.local
 .env.*.local
 .json
-.png
+*.png

@@ -1,42 +1,80 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareCaretDown, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import Button from '../../ui/button/Button';
+import { paths } from '../../../lib/paths';
+import { useLocation } from 'react-router-dom';
 
-function Menu(){
+type NavItem = {
+  to: string;
+  label: string;
+  end?: boolean;
+  url: string;
+};
+
+const NAV_ITEMS: NavItem[] = [
+  { to: paths.catalog(), label: "Каталог ЯП", url:"/catalog" },
+  { to: paths.language(), label: "Фильтры", url:"/filters" },
+  { to: paths.profile(), label: "Пет-проекты", url:"/petprojects" },
+  { to: paths.language(), label: "Сравнение", url:"/compare" },
+];
+
+
+export default function Menu(){
     const [isOpen, setIsOpen] = useState(false);
     const closeMenu = () => setIsOpen(false);
 
-     return (
+    const {pathname}=useLocation();
+
+    return (
           <>     
                 <div className="fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-(--bg)/80 2xl:px-50 xl:px-30 px-15 py-7">
-                    <Link to="/" onClick={closeMenu}>
+                    <Link to={paths.home()} onClick={closeMenu}>
                         <h3 className="text-grad-hover text-xl text-nowrap">Progers HUB</h3>
                     </Link>
 
                     <div className="hidden lg:flex lg:gap-6">
-                        
-                        <Link to="/languages">
+                        {NAV_ITEMS.map((elem)=>{
+                            return (
+                                
+                                <NavLink 
+                                    to={elem.to}
+                                    end={elem.end}
+                                    className={'w-fit ' + (pathname===elem.url ? 
+                                        " duration-50 border-b-2 border-b-(--osn-or)" : 
+                                        " transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or"
+                            )}
+                                >
+                                    <h3 className='pageMenu'>
+                                        {elem.label}
+                                    </h3>
+                                        
+                                </NavLink>
+                            )
+                        })
+
+                        }
+                        {/* <Link to={paths.language()}>
                             <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
                                 <h3 className="pageMenu">Каталог</h3>
                             </div>
                         </Link>
-                        <Link to="/catalog">
+                        <Link to={paths.catalog()}>
                             <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
                                 <h3 className="pageMenu">Roadmap</h3>
                             </div>
                         </Link>
-                        <Link to="/catalog">
+                        <Link to={paths.catalog()}>
                             <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
                                 <h3 className="pageMenu">Гид по PR</h3>
                             </div>
                         </Link>
-                        <Link to="/catalog">
+                        <Link to={paths.profile()}>
                             <div className='w-fit transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or) '>
                                 <h3 className="pageMenu">Тарифы</h3>
                             </div>
-                        </Link>
+                        </Link> */}
                         
                     </div>
 
@@ -47,7 +85,10 @@ function Menu(){
                         <Link to="/signin">
                             <Button text='Регистрация' numCSS={true} margin=''/>
                         </Link> */}
-                        <Button text='Profile' numCSS={true} margin='' col={1}/>
+                        <Link to="/profile">
+                            <Button text='Profile' numCSS={true} margin='' col={1}/>
+                        </Link>
+                        
                     </div>
                     <div className="lg:hidden">
                         <FontAwesomeIcon
@@ -71,26 +112,21 @@ function Menu(){
                         <Link to="/languages" onClick={closeMenu}>
                             <button className="">Каталог</button>
                         </Link>
-                        <Link to="/" onClick={closeMenu}>
+                        <Link to={paths.language()} onClick={closeMenu}>
                             <button  className="">Roadmap</button>
                         </Link>
-                        <Link to="/" onClick={closeMenu}>
+                        <Link to={paths.language()} onClick={closeMenu}>
                                 <button onClick={closeMenu} className="">Гид по PR</button>
                         </Link>
-                        <Link to="/" onClick={closeMenu}>
+                        <Link to={paths.language()} onClick={closeMenu}>
                                 <button onClick={closeMenu} className="">Тарифы</button>
                         </Link>
                         <div className='flex justify-between'>
-                            <Link to="/login" onClick={closeMenu}>
-                                <Button text='Войти' numCSS={false} margin='' col={1}/>
-                            </Link>
-                            <Link to="/signin" onClick={closeMenu}>
-                                <Button text='Регистрация' numCSS={true} margin='' col={2}/>
+                            <Link to={paths.profile()}>
+                                <Button text='Profile' numCSS={true} margin='' col={1}/>
                             </Link>
                         </div>
                     </div>
           </>
      )
 }
-
-export default Menu;

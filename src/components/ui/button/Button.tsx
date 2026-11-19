@@ -5,9 +5,10 @@ type ButProp = {
     margin: string,
     numCSS: Boolean,
     col: number,
+    onClick?: ()=>void,
 }
 
-function Button({text, margin, numCSS, col}: ButProp){
+function Button({text, margin, numCSS, col, onClick}: ButProp){
      let style=`${margin} ${numCSS ? "signUp" : "login"}`
      switch(col){
           case 1:
@@ -24,7 +25,7 @@ function Button({text, margin, numCSS, col}: ButProp){
 
      }
      return (
-          <button className={style}>{text}</button>
+          <button onClick={onClick} className={style}>{text}</button>
      )
 }
 export default Button;

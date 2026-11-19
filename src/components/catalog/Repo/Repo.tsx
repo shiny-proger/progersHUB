@@ -11,11 +11,11 @@ type propRepo={
     level: string,
     lang: string,
     format: string,
-    stars: number,
+    recomend: Boolean,
 }
 
 
-export default function Repo({name, par, level, lang, format, stars}: propRepo){
+export default function Repo({name, par, level, lang, format, recomend}: propRepo){
     const [isEnabled, setIsEnabled]=useState(false);
 
     const {isSave, isHidden, saveRepo, unsaveRepo}=useSave(name);
@@ -48,7 +48,7 @@ export default function Repo({name, par, level, lang, format, stars}: propRepo){
             <div className="grid gap-2 border-2 rounded-md p-5 items-center">
                 <div className="flex justify-between">
                     <h3>{name}</h3>
-                    <Chip text={"★ " + stars} col={3} />
+                    <Chip text={recomend ? "Рекомендуется" : "Допустимо"} col={recomend ? 4 : 2} />
                 </div>
                 <p>{par}</p>
                 <div className="flex justify-baseline gap-2">

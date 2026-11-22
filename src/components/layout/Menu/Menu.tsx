@@ -14,8 +14,8 @@ type NavItem = {
 };
 
 const NAV_ITEMS: NavItem[] = [
-  { to: paths.catalog(), label: "Каталог ЯП", url:"/catalog" },
-  { to: paths.language(), label: "Фильтры", url:"/filters" },
+  { to: paths.language(), label: "Каталог ЯП", url:"/languages" },
+  { to: paths.catalog(), label: "Фильтры", url:"/catalog" },
   { to: paths.profile(), label: "Пет-проекты", url:"/petprojects" },
   { to: paths.language(), label: "Сравнение", url:"/compare" },
 ];
@@ -85,7 +85,7 @@ export default function Menu(){
                         <Link to="/signin">
                             <Button text='Регистрация' numCSS={true} margin=''/>
                         </Link> */}
-                        <Link to="/profile">
+                        <Link to={paths.profile()}>
                             <Button text='Profile' numCSS={true} margin='' col={1}/>
                         </Link>
                         
@@ -109,21 +109,30 @@ export default function Menu(){
                                 ? "translate-x-0" : "-translate-x-full"}
                         `}
                     >
-                        <Link to="/languages" onClick={closeMenu}>
-                            <button className="">Каталог</button>
-                        </Link>
-                        <Link to={paths.language()} onClick={closeMenu}>
-                            <button  className="">Roadmap</button>
-                        </Link>
-                        <Link to={paths.language()} onClick={closeMenu}>
-                                <button onClick={closeMenu} className="">Гид по PR</button>
-                        </Link>
-                        <Link to={paths.language()} onClick={closeMenu}>
-                                <button onClick={closeMenu} className="">Тарифы</button>
-                        </Link>
+                        {NAV_ITEMS.map((elem)=>{
+                            return (
+                                
+                                <NavLink 
+                                    onClick={closeMenu}
+                                    to={elem.to}
+                                    end={elem.end}
+                                    className={'w-fit ' + (pathname===elem.url ? 
+                                        " duration-50 border-b-2 border-b-(--osn-or)" : 
+                                        " transition-all duration-50 hover:border-b-2 hover:border-b-(--osn-or"
+                            )}
+                                >
+                                    <h3 className='pageMenu'>
+                                        {elem.label}
+                                    </h3>
+                                        
+                                </NavLink>
+                            )
+                        })
+
+                        }
                         <div className='flex justify-between'>
                             <Link to={paths.profile()}>
-                                <Button text='Profile' numCSS={true} margin='' col={1}/>
+                                <Button text='Profile' numCSS={true} margin='' col={1} onClick={closeMenu}/>
                             </Link>
                         </div>
                     </div>

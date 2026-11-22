@@ -18,21 +18,21 @@ import { Link } from "react-router-dom"
 
 import { motion } from "motion/react"
 const cards = [
-     { src: js, head: "JavaScript", parag: "Изучаем JavaScript по GitHub-репозиториям!" },
-     { src: ts, head: "TypeScript", parag: "Грокаем TypeScript по GitHub-репозиториям!" },
-     { src: python, head: "Python", parag: "Изучаем Python по GitHub-репозиториям!" },
-     { src: c, head: "C (Си)", parag: "Осваиваем язык C по GitHub-репозиториям!" },
-     { src: cpp, head: "C++", parag: "Исследуем C++ по GitHub-репозиториям!" },
-     { src: csharp, head: "Csharp", parag: "Зарываемся в C++ по GitHub-репозиториям!" },
-     { src: java, head: "Java", parag: "Препарируем Java по GitHub-репозиториям!" },
-     { src: golang, head: "Golange", parag: "Ковыряем Golange по GitHub-репозиториям!" },
-     { src: github, head: "GitHub", parag: "Эксперементируем с GitHub по GitHub-репозиториям!" },
-     { src: web, head: "WEB (HTML & CSS)", parag: "Разбираемся в вебе по GitHub-репозиториям!" },
-     { src: database, head: "DataBase", parag: "Штудируем Базы Данных по GitHub-репозиториям!" },
-     { src: dart, head: "Dart", parag: "Обкатываем Dart по GitHub-репозиториям!" },
-     { src: php, head: "Php", parag: "Курим php по лучшим GitHub-репозиториям!" },
-     { src: swift, head: "Swift", parag: "Анализируем swift по GitHub-репозиториям!" },
-     { src: kotlin, head: "Kotlin", parag: "Тестим Kotlin по GitHub-репозиториям!" },
+     { src: js, head: "JavaScript", parag: "Изучаем JavaScript по GitHub-репозиториям!",count: 26 },
+     { src: ts, head: "TypeScript", parag: "Грокаем TypeScript по GitHub-репозиториям!", count: 15 },
+     { src: python, head: "Python", parag: "Изучаем Python по GitHub-репозиториям!", count: 41 },
+     { src: c, head: "C (Си)", parag: "Осваиваем язык C по GitHub-репозиториям!", count: 9 },
+     { src: cpp, head: "C++", parag: "Исследуем C++ по GitHub-репозиториям!", count: 8 },
+     { src: csharp, head: "Csharp", parag: "Зарываемся в C++ по GitHub-репозиториям!", count: 10},
+     { src: java, head: "Java", parag: "Препарируем Java по GitHub-репозиториям!", count:10 },
+     { src: golang, head: "Golange", parag: "Ковыряем Golange по GitHub-репозиториям!", count: 18 },
+     { src: github, head: "GitHub", parag: "Эксперементируем с GitHub по GitHub-репозиториям!", count:14},
+     { src: web, head: "WEB (HTML & CSS)", parag: "Разбираемся в вебе по GitHub-репозиториям!", count: 17 },
+     
+     { src: dart, head: "Dart", parag: "Обкатываем Dart по GitHub-репозиториям!", count:14 },
+     { src: php, head: "Php", parag: "Курим php по лучшим GitHub-репозиториям!", count:10 },
+     { src: swift, head: "Swift", parag: "Анализируем swift по GitHub-репозиториям!", count:9 },
+     { src: kotlin, head: "Kotlin", parag: "Тестим Kotlin по GitHub-репозиториям!", count:12 },
 ]
 
 
@@ -65,6 +65,7 @@ function Languages(){
                                         src={elem.src} 
                                         head={elem.head} 
                                         parag={elem.parag} 
+                                        count={elem.count}
                                         />
                               </motion.div>
                          ))}

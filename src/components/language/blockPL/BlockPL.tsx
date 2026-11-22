@@ -4,9 +4,10 @@ type BlockPLprop = {
      src: string
      head: string
      parag: string
+     count: number
 }
 
-function BlockPL({src, head, parag}: BlockPLprop){
+function BlockPL({src, head, parag, count}: BlockPLprop){
      return (
           <>
                <div className="BlockPL text-grad-hover">
@@ -16,7 +17,7 @@ function BlockPL({src, head, parag}: BlockPLprop){
                          <h3>{head}</h3>                 
                          <p>{parag}</p>   
                     </div>
-                    <Chip text="5 репо" col={2} />
+                    <Chip text={`${count}`} col={2} />
                </div>
           </>
      )

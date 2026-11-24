@@ -4,12 +4,14 @@ import catalog from "../../data/catalog.json"
 
 
 export default function Profile(){
+    
     let count =0;
     catalog.map((elem)=>{
         if(localStorage.getItem(elem.name)){
             count++;
         }
     })
+
     return(
           <div className="grid items-center gap-5 mb-10">
                <div className="text-start xl:mt-40 mt-20 mb-10">
@@ -20,7 +22,7 @@ export default function Profile(){
                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                      {catalog.map((elem)=>{
                      return(
-                           localStorage.getItem(elem.name) && <Repo name={elem.name} par={elem.description} level={elem.level} lang={elem.contentLanguage} format={elem.format} recomend={elem.recommended} />
+                           localStorage.getItem(elem.name) && <Repo name={elem.name} owner={elem.owner} par={elem.description} level={elem.level} lang={elem.contentLanguage} format={elem.format} recomend={elem.recommended} />
                           )
                      })
                      }

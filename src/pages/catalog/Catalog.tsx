@@ -19,7 +19,7 @@ function Catalog(){
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                          {catalog.slice(0, count).map((elem)=>{
                          return(
-                              <Repo name={elem.name} par={elem.description} level={elem.level} lang={elem.contentLanguage} format={elem.format} recomend={elem.recommended} />
+                              <Repo name={elem.name} owner={elem.owner} par={elem.description} level={elem.level} lang={elem.contentLanguage} format={elem.format} recomend={elem.recommended} />
                               )
                          })
                          }

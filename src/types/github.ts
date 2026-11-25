@@ -9,6 +9,7 @@ export type License = {
   name: string
   spdx_id: string | null
 }
+
 export type Repo = {
   id: number
   name: string
@@ -27,6 +28,7 @@ export type Repo = {
   updated_at: string
   pushed_at: string | null
   topics?: string[]
+  forks_url: string
   license: License | null
   owner: Owner
 }

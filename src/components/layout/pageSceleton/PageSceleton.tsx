@@ -3,7 +3,7 @@
 export default function PageSkeleton() {
   return (
     <>
-        <div className="fixed z-50 inset-0 bg-(--bg) flex items-center">
+        <div className="fixed z-50 inset-0 bg-(--bg) flex items-center cursor-progress">
             <div className="flex-col gap-4 w-full flex items-center justify-center">
             <div
                 className="w-20 h-20 border-4 border-transparent text-(--text) text-4xl animate-spin flex items-center justify-center border-t-(--text) rounded-full"

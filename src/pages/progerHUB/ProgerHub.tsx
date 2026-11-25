@@ -33,11 +33,11 @@ function ProgerHub(){
                          <h1 >Каждый шаг обучения подтверждён <span className="grad-or">кодом</span> <span className="text-grad text-nowrap">PROGERS HUB</span></h1>
                     </div>
                     <div className="flex justify-center mt-20 ">
-                         <Link to="/lenguages">
+                         <Link to="/languages">
                               <Button text='Открыть каталог' numCSS={true} margin='md:mx-20 mx-3' col={1}/>
                          </Link>
                          
-                         <Button text='Твой первый PR' numCSS={false} margin='md:mx-20 mx-3' col={3}/>
+                         <Button text='Pet-проекты ↗' numCSS={false} margin='md:mx-20 mx-3' col={3}/>
                     </div>
                </div>
                <motion.div

@@ -78,7 +78,7 @@ export default function Repo({name, owner, par, level, lang, format, recomend}: 
                             <Button text="Подробнее" margin="md:px-15 px-10" numCSS={true} col={3} />
                         </NavLink>
                         <NavLink to={"https://github.com/"+owner+"/"+name} className="grid">
-                            <Button text="GitHub ↗" margin="md:px-20 px-14" numCSS={true} col={2} />
+                            <Button text="GitHub ↗" margin="md:px-15 px-10" numCSS={true} col={2} />
                         </NavLink>
                     </div>
                 </div>

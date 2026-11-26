@@ -9,6 +9,7 @@ import Chip from "../../components/ui/chip/Chip";
 import type { Repo } from '../../types/github'
 import { useState, useEffect } from "react";
 import PageSkeleton from "../../components/layout/pageSceleton/PageSceleton";
+import ErrorAPI from "../Errors/ErrorAPI";
 
 type Prop={ owner: string; 
     name: string; 
@@ -61,7 +62,7 @@ export default function RepoAll(){
                             throw new Error("Ошибка при обращении к АПИ ГИТХАБА")
                         }
                     }
-                }catch(error ){
+                }catch(error){
                     if (error instanceof Error && error.name !== 'AbortError') {
                         setError(error)
                         return (
@@ -80,17 +81,18 @@ export default function RepoAll(){
         }, []); // пустой массив значит запуск только при открытии 
         
         if(loading) return <PageSkeleton/>;
-        if (error) return <p className="mt-50">Произошла ошибка! Обнови или перезади на страницу!</p>;
+        if (error) return <ErrorAPI/>;
 
         if (dataAPI){
-            const lastUpdateRepo = new Date(dataAPI.updated_at).toLocaleDateString("ru-RU")
+            const lastUpdateRepo = new Date(dataAPI.updated_at)
+            .toLocaleDateString("ru-RU")
             return (
                 <>  
                     <div className="xl:mt-40 mt-30 mb-10 grid sm:gap-3 gap-1">
                         <div className="grid border-1 border-(--text)/50 hover:border-(--text) p-5 rounded-md bg-(--text)/5 gap-5 ">
                             <div className="flex sm:flex-row flex-col justify-between">
                                 <div className="grid">
-                                    <h1 className="p-0 text-[clamp(20px,5vw,70px)]">{obj.owner}<span className="text-(--osn-or)/85 text-[clamp(15px,3vw,60px)]">/{obj.name}</span></h1>
+                                    <h1 className="p-0 text-[clamp(20px,3vw,70px)]">{obj.owner}<span className="text-(--osn-or)/85 text-[clamp(15px,2vw,60px)]">/{obj.name}</span></h1>
                                     <p>{obj.description}</p>
                                 </div>
                                 <div className="flex flex-row gap-3 ">
@@ -134,7 +136,7 @@ export default function RepoAll(){
                         <div className="flex flex-col sm:flex-row gap-1 sm:gap-3">
                             <div className="grid sm:gap-3 gap-1 ">
                                 <div className=" border-1 border-(--text)/50 hover:border-(--text) p-5 rounded-md bg-(--text)/5 gap-5 ">
-                                    <h2 className="text-[clamp(10px,3vw,50px)]">Как обучаться по данному репозиторию?...</h2>
+                                    <h2 className="text-[clamp(10px,4vw,40px)]">Как обучаться по данному репозиторию?...</h2>
                                     <p className="text-[clamp(10px,1.5vw,50px)]">{obj.tutor}</p>
                                     <div className="sm:flex gap-3 grid ">
                                         <Chip text={("Уровень: " + obj.level.toUpperCase())} col={4} />
@@ -168,13 +170,21 @@ export default function RepoAll(){
                                 <div className="grid gap-5">
                                     <h4>Ссылки проекта</h4>
                                     <div className="grid gap-3">
-                                        <h5>Исходный код ↗</h5>
+                                        <NavLink to={"https://github.com/"+obj.owner+"/"+obj.name}>
+                                            <h5>Исходный код ↗</h5>
+                                        </NavLink>
                                         <hr />
-                                        <h5>Issues ↗</h5>
+                                        <NavLink to={"https://github.com/"+obj.owner+"/"+obj.name+"/issues"}>
+                                            <h5>Issues ↗</h5>
+                                        </NavLink>
                                         <hr />
-                                        <h5>README ↗</h5>
+                                        <NavLink to={"https://github.com/"+obj.owner+"/"+obj.name+"/issues"}>
+                                            <h5>README ↗</h5>
+                                        </NavLink>
                                         <hr />
-                                        <h5>Автор репо </h5>
+                                        <NavLink to={"https://github.com/"+obj.owner}>
+                                            <h5>Автор репо ↗</h5>
+                                        </NavLink>
                                         <hr />
                                     </div>
                                 </div>

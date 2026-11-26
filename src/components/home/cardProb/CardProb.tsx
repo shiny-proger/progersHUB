@@ -14,12 +14,12 @@ function CardProb({prob, resh, parag, linkText, link}: BlockPLprop){
                <div className="border-2 hover:border-2 hover:border-(--osn-or) border-(--text)/50 rounded-md max-w-full md:p-10 p-5">
                     <div>
                         <p className="text-(--error) font-bold">Проблема</p>
-                        <h3 className='text-wrap text-[clamp(2px,2vw,36px)]'>{prob}</h3>
+                        <h3 className='text-wrap text-[clamp(10px,5vw,36px)]'>{prob}</h3>
                     </div>
                     <hr className="text-(--text) md:my-5 sm:my-3 my-2"/>   
                     <div>
                         <p className="text-(--right) font-bold">Решение</p>
-                        <h3 className='text-wrap text-[clamp(2px,2vw,36px)]'>{resh}</h3>
+                        <h3 className='text-wrap text-[clamp(10px,5vw,36px)]'>{resh}</h3>
                         <p>{parag}</p>
                         <Link to={link}>
                             <p className='text-(--text) font-bold'>{linkText} <span className='grad-or'>→</span></p>

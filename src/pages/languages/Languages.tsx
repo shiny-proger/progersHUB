@@ -9,7 +9,6 @@ import csharp from "../../assets/langs/csharp.png"
 import golang from "../../assets/langs/golang.png"
 import github from "../../assets/langs/github.png"
 import web from "../../assets/langs/web.png"
-import database from "../../assets/langs/database.png"
 import dart from "../../assets/langs/dart.png"
 import php from "../../assets/langs/php.png"
 import swift from "../../assets/langs/swift.png"
@@ -73,7 +72,7 @@ function Languages(){
                </div>
                <div className="text-center border-2 border-(--osn-or) border-dashed rounded-md mb-10">
                     <Link to="/catalog">
-                         <h3 className="text-(--osn-or) sm:p-5 p-3">Не нашёл свой язык? Открыть весь каталог →</h3>
+                         <h3 className="text-(--osn-or) sm:p-5 p-3 text-[clamp(10px,3.5vw,18px)]">Не нашёл свой язык? Открыть весь каталог →</h3>
                     </Link>
                </div>
           </>

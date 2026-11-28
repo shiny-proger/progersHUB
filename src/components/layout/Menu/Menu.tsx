@@ -3,7 +3,7 @@ import { faSquareCaretDown, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import Button from '../../ui/button/Button';
-import { paths } from '../../../lib/paths';
+import { paths } from '../../../paths/paths.ts';
 import { useLocation } from 'react-router-dom';
 
 type NavItem = {
